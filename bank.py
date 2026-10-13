@@ -4,7 +4,12 @@ class BankAccount:
         self.balance = balance
 
     def deposit(self, amount):
-        self.balance = self.balance + amount
+         if amount > 0:
+              self.balance = self.balance + amount
+              print("Deposit successfull")
+         else:
+              print("invalid deposit")
+       
 
     def withdraw(self, amount):
             if amount <= self.balance:
@@ -13,6 +18,8 @@ class BankAccount:
             else:
                  print("insufficient balance")     
 
+    def check_balance(self):
+         print(f"Current balance:${self.balance}")
 
 account1 = BankAccount("Sohail", 5000)
 print(account1.name)
@@ -27,3 +34,9 @@ print(account1.balance)
 
 account1.withdraw(1000)
 print(account1.balance)
+
+account1.check_balance()
+
+account1.deposit(-2000)
+print(account1.balance)
+
